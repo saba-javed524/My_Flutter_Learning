@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter_project_1/utils/routes.dart';
 
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,8 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
-      child: Center(
+
+      child: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset(
@@ -22,7 +24,7 @@ class LoginPage extends StatelessWidget {
             Text(
               "Welcome",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -44,30 +46,33 @@ class LoginPage extends StatelessWidget {
                         hintText: "Enter Password", labelText: "Password:"),
                   ),
                   SizedBox(
-                    height: 20.0,
+                    height: 40.0,
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      print("Button was Pressed!");
+                      Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
                     child: Text("Login"),
-                    style:
-                        TextButton.styleFrom(backgroundColor: Colors.blueGrey),
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.blueGrey,
+                        textStyle: TextStyle(fontSize: 20),
+                        minimumSize: Size(150, 50)),
                   )
                 ],
               ),
             )
           ],
         ),
-        // child: Text(
-        //   "Login Page",
-        //   style: TextStyle(
-        //     fontSize: 20,
-        //     color: Colors.blueGrey,
-        //     fontWeight: FontWeight.bold,
-        //   ),
-        // ),
       ),
+
+      // child: Text(
+      //   "Login Page",
+      //   style: TextStyle(
+      //     fontSize: 20,
+      //     color: Colors.blueGrey,
+      //     fontWeight: FontWeight.bold,
+      //   ),
+      // ),
     );
   }
 }
